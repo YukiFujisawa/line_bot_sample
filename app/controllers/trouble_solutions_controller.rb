@@ -21,9 +21,9 @@ class TroubleSolutionsController < ApplicationController
           text = event.message['text']
           if text.start_with?('答')
             if (text.end_with?('だね'))
-              @client.send_messages(event, ['さすが！正解です。','次の問題にいきますか？'])
+              @client.send_messages(event, ['さすが！正解です。','次の問題に挑戦する場合は、何か入力してください。'])
             else
-              @client.send_messages(event, ['残念。不正解です。','次の問題にいきますか？'])
+              @client.send_messages(event, ['残念。不正解です。','次の問題に挑戦する場合は、何か入力してください。'])
             end
           else
             @client.send_confirm(event, Questions.random)
